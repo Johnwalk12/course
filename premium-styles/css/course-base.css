@@ -1,0 +1,227 @@
+/**
+ * Fluent Speaker Course Platform - Base Styles
+ * 
+ * Contains:
+ * - CSS variables
+ * - Reset styles
+ * - Typography foundations
+ * - Basic layout
+ */
+
+
+/* Root variables */
+
+:root {
+    /* Color palette - Dark Gold premium theme */
+    --primary-color: #d4af37;
+    /* Gold */
+    --primary-light: #f4e8bd;
+    /* Light gold */
+    --primary-dark: #9e7b20;
+    /* Dark gold */
+    --secondary-color: #1e1e24;
+    /* Rich dark */
+    --background-color: #222;
+    /* Dark background */
+    --background-darker: #181818;
+    /* Darker background for cards */
+    --background-lighter: #333;
+    /* Lighter background for hover states */
+    --text-color: #f8f8f8;
+    /* Off-white text */
+    --text-light: #b0b0b0;
+    /* Muted text */
+    --text-dark: #696969;
+    /* Darker muted text */
+    --accent-color: #4a90e2;
+    /* Blue accent */
+    --success-color: #27ae60;
+    /* Green */
+    --warning-color: #f39c12;
+    /* Orange */
+    --danger-color: #e74c3c;
+    /* Red */
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    --gradient-dark: linear-gradient(to bottom, var(--background-color), var(--background-darker));
+    --gradient-nav: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
+    /* Spacing system - 8px base with golden ratio progression */
+    --spacing-xxs: 4px;
+    --spacing-xs: 8px;
+    --spacing-sm: 13px;
+    --spacing-md: 21px;
+    --spacing-lg: 34px;
+    --spacing-xl: 55px;
+    --spacing-xxl: 89px;
+    /* Borders */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --border-radius-xl: 20px;
+    /* Typography - Scale with 1.25 ratio */
+    --font-size-xxs: 10px;
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-md: 16px;
+    --font-size-lg: 20px;
+    --font-size-xl: 25px;
+    --font-size-xxl: 31px;
+    --font-size-xxxl: 39px;
+    /* Font weights */
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.3);
+    --shadow-inset: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    --shadow-glow: 0 0 15px rgba(212, 175, 55, 0.3);
+    /* Transitions */
+    --transition-fast: 0.2s ease-out;
+    --transition-medium: 0.3s ease-out;
+    --transition-slow: 0.5s ease-out;
+    /* Z-indices */
+    --z-background: -1;
+    --z-normal: 1;
+    --z-overlay: 10;
+    --z-dropdown: 20;
+    --z-fixed: 30;
+    --z-modal: 40;
+    --z-popover: 50;
+    --z-tooltip: 60;
+}
+
+
+/* Base reset styles */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: var(--font-size-md);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    scroll-behavior: smooth;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* Typography scale */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-color);
+    letter-spacing: -0.01em;
+}
+
+h1 {
+    font-size: var(--font-size-xxxl);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: var(--font-size-xxl);
+}
+
+h3 {
+    font-size: var(--font-size-xl);
+}
+
+h4 {
+    font-size: var(--font-size-lg);
+}
+
+p {
+    margin-bottom: var(--spacing-md);
+    line-height: 1.7;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--primary-light);
+    text-decoration: none;
+}
+
+
+/* Lists */
+
+ul,
+ol {
+    margin: 0;
+    padding: 0 0 0 var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+li {
+    margin-bottom: var(--spacing-xs);
+}
+
+
+/* Images */
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* Focus styles for accessibility */
+
+:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+
+/* Dark mode selection styles */
+
+::selection {
+    background-color: rgba(212, 175, 55, 0.3);
+    color: var(--text-color);
+}
+
+
+/* Base layout container */
+
+.lesson-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0 auto;
+    padding: 0;
+    background-color: var(--background-color);
+}
